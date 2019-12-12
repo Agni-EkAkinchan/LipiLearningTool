@@ -44,7 +44,7 @@
 </td>
 </tr></table>
 <table><tr><td>
-<textarea rows="10" cols="100" id="myTextarea" style="font-family:Arial;"></textarea>
+<textarea rows="7" cols="80" id="myTextarea"></textarea>
 </td></tr><tr><td>
 <button onclick="myFunction()" type="button">ज्ञेय लिपि में परिवर्तीत करें</button>
 </td></tr></table>
@@ -83,8 +83,6 @@ function example2() {
   var lang = document.getElementById("fromLipi").value;
   if (lang === "DEVA") {
     document.getElementById("myTextarea").value = dEx2;
-    document.getElementById("myTextarea").style.fontFamily = "Arial";
-    document.getElementById("myTextarea").style.fontSize = "larger";
   }
   else if (lang === "GUJ") {
     document.getElementById("myTextarea").value = gEx2;

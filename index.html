@@ -6,45 +6,29 @@
 <body style="white-space: wrap;">
 <h2>भारतकी लिपियां सीखे</h2>
 <form>
-<table  style= "white-space: normal;"><tr><td>
-ज्ञात लिपि: <select id="fromLipi" onChange="changeVarnbox()">
+<table style= "width:95%; float:left;">
+<tr>
+<td>ज्ञात लिपि <select id="fromLipi" onChange="changeVarnbox()">
     <option value="DEVA">देवनागरी</option>
     <option value="GUJ">ગુજરાતી</option>
     <option value="BEN">বাংলা</option>
-</select>
-</td><td>
-ज्ञेय लिपि: <select id="lipiToLearn">
+</select></td>
+<td style="text-align:centre">ज्ञेय लिपि <select id="lipiToLearn">
     <option value="GUJ">गुजराती</option>
     <option value="DEVA">देवनागरी</option>
     <option value="BEN">बंगाली</option>
-</select>
-</td><td>
-अभ्यास स्तर:  <select id="level" onChange="changeVarnbox()">
+</select></td>
+<td style="text-align:centre">स्तर <select id="level" onChange="changeVarnbox()">
     <option value="1">प्रारंभिक</option>
     <option value="2">मध्यम</option>
     <option value="3">उत्तम</option>
-</select>
-</td><td>
-अभ्यास वर्ण: <textarea rows="1" cols="15" id="learnVarn">अ क ब</textarea>
-</td></tr></table>
-<table style= "white-space: pre-wrap;"><tr><td>
-ज्ञात भाषा में यहाँ लिखे अथवा कोई उदहारण पसंद करें:         उदहारण:
-</td>
-<td>
-<button onclick="example1()" type="button">1</button>
-</td>
-<td>
-<button onclick="example2()" type="button">2</button>
-</td>
-<td>
-<button onclick="example3()" type="button">3</button>
-</td>
-<td>
-<button onclick="cleartextbox()" type="button" style="color:red"><b>X</b></button>
-</td>
+</select></td>
+<td style="text-align:right">अभ्यास वर्ण <textarea rows="1" cols="10" id="learnVarn">अ क ब</textarea></td>
 </tr></table>
-<table><tr><td>
-<textarea rows="7" cols="80" id="myTextarea"></textarea>
+<table  style= "width:95%; float:left; white-space: pre-wrap;"><tr><td>ज्ञात भाषा में यहाँ लिखे</td>
+<td style="text-align:right"> उदाहरण: <button onclick="example1()" type="button">1</button><button onclick="example2()" type="button">2</button><button onclick="example3()" type="button">3</button><button onclick="cleartextbox()" type="button" style="color:red"><b>X</b></button></td>  </tr></table>
+<table style= "width:95%;"><tr><td>
+<textarea rows="7" id="myTextarea" style= "width:100%;"></textarea>
 </td></tr><tr><td>
 <button onclick="myFunction()" type="button">ज्ञेय लिपि में परिवर्तीत करें</button>
 </td></tr></table>

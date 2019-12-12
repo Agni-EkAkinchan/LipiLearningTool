@@ -1,18 +1,261 @@
-<!DOCTYPE html>
-
+<!DOCTYPE HTML>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
 </head>
-
-<body>
-
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
-
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
-
+<body style="white-space: wrap;">
+<h2>भारतकी लिपियां सीखे</h2>
+<form>
+<table  style= "white-space: normal;"><tr><td>
+ज्ञात लिपि: <select id="fromLipi" onChange="changeVarnbox()">
+    <option value="DEVA">देवनागरी</option>
+    <option value="GUJ">ગુજરાતી</option>
+    <option value="BEN">বাংলা</option>
+</select>
+</td><td>
+ज्ञेय लिपि: <select id="lipiToLearn">
+    <option value="GUJ">गुजराती</option>
+    <option value="DEVA">देवनागरी</option>
+    <option value="BEN">बंगाली</option>
+</select>
+</td><td>
+अभ्यास स्तर:  <select id="level" onChange="changeVarnbox()">
+    <option value="1">प्रारंभिक</option>
+    <option value="2">मध्यम</option>
+    <option value="3">उत्तम</option>
+</select>
+</td><td>
+अभ्यास वर्ण: <textarea rows="1" cols="15" id="learnVarn">अ क ब</textarea>
+</td></tr></table>
+<table style= "white-space: pre-wrap;"><tr><td>
+ज्ञात भाषा में यहाँ लिखे अथवा कोई उदहारण पसंद करें:         उदहारण:
+</td>
+<td>
+<button onclick="example1()" type="button">1</button>
+</td>
+<td>
+<button onclick="example2()" type="button">2</button>
+</td>
+<td>
+<button onclick="example3()" type="button">3</button>
+</td>
+<td>
+<button onclick="cleartextbox()" type="button" style="color:red"><b>X</b></button>
+</td>
+</tr></table>
+<table><tr><td>
+<textarea rows="10" cols="100" id="myTextarea" style="font-family:Arial;"></textarea>
+</td></tr><tr><td>
+<button onclick="myFunction()" type="button">ज्ञेय लिपि में परिवर्तीत करें</button>
+</td></tr></table>
+</form>
+<div id="demo" style= "white-space: pre-wrap;">
+</div>
+<script>
+function changeVarnbox() {
+  if (document.getElementById("level").value === "1") {
+    document.getElementById("learnVarn").disabled=false;
+    var lang = document.getElementById("fromLipi").value;
+    if (lang === "DEVA") {
+      document.getElementById("learnVarn").value = "अ क ब";
+    } else if (lang === "GUJ") {
+      document.getElementById("learnVarn").value = "અ ક બ";
+    } else if (lang === "BEN") {
+      document.getElementById("learnVarn").value = "অ ক ব";
+    }
+  } else {
+    document.getElementById("learnVarn").disabled=true;
+    }
+}
+function cleartextbox() {
+  document.getElementById("myTextarea").value = '';
+}
+function example1() {
+  var lang = document.getElementById("fromLipi").value;
+  if (lang === "DEVA" || lang == "BEN") {
+    document.getElementById("myTextarea").value = ex1;
+  }
+ else if (lang === "GUJ") {
+   document.getElementById("myTextarea").value = ex1;
+  }
+}
+function example2() {
+  var lang = document.getElementById("fromLipi").value;
+  if (lang === "DEVA") {
+    document.getElementById("myTextarea").value = dEx2;
+    document.getElementById("myTextarea").style.fontFamily = "Arial";
+    document.getElementById("myTextarea").style.fontSize = "larger";
+  }
+  else if (lang === "GUJ") {
+    document.getElementById("myTextarea").value = gEx2;
+  }
+  else if (lang === "BEN") {
+    document.getElementById("myTextarea").value = bEx2;
+  }
+}
+function example3() {
+  var lang = document.getElementById("fromLipi").value;
+  if (lang === "DEVA") {
+    document.getElementById("myTextarea").value = dEx3;
+  }
+  else if (lang === "GUJ") {
+    document.getElementById("myTextarea").value = gEx3;
+  }
+  else if (lang === "BEN") {
+    document.getElementById("myTextarea").value = bEx3;
+  }
+}
+const DEVA = ['\u0900', '\u0901', '\u0902', '\u0903', 'ऄ', 'अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ऌ', 'ऍ', 'ऎ', 'ए', 'ऐ', 'ऑ', 'ऒ', 'ओ', 'औ', 'क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ', 'ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न', 'ऩ', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ऱ', 'ल', 'ळ', 'ऴ', 'व', 'श', 'ष', 'स', 'ह', '\u093a', '\u093b', '\u093c', '\u093d', '\u093e', '\u093f', '\u0940', '\u0941', '\u0942', '\u0943', '\u0944', '\u0945', '\u0946', '\u0947', '\u0948', '\u0949', '\u094a', '\u094b', '\u094c', '\u094d', '\u094e', '\u094f', '\u0950', '\u0951', '\u0952', '\u0953', '\u0954', '\u0955', '\u0956', '\u0957', 'क़', 'ख़', 'ग़', 'ज़', 'ड़', 'ढ़', 'फ़', 'य़', 'ॠ', 'ॡ', '\u0962', '\u0963', '।', '॥', '०', '१', '२', '३', '४', '५', '६', '७', '८', '९', 'त्', 'ौ', 'र', 'व'];
+const GUJ = ['', '\u0a81', '\u0a82', '\u0a83', '', 'અ', 'આ', 'ઇ', 'ઈ', 'ઉ', 'ઊ', 'ઋ', 'ઌ', 'ઍ', '', 'એ', 'ઐ', 'ઑ', '', 'ઓ', 'ઔ', 'ક', 'ખ', 'ગ', 'ઘ', 'ઙ', 'ચ', 'છ', 'જ', 'ઝ', 'ઞ', 'ટ', 'ઠ', 'ડ', 'ઢ', 'ણ', 'ત', 'થ', 'દ', 'ધ', 'ન', 'ન', 'પ', 'ફ', 'બ', 'ભ', 'મ', 'ય', 'ર', 'ર', 'લ', 'ળ', 'ળ', 'વ', 'શ', 'ષ', 'સ', 'હ', '', '', '\u0abc', '\u0abd', '\u0abe', '\u0abf', '\u0ac0', '\u0ac1', '\u0ac2', '\u0ac3', '\u0ac4', '\u0ac5', '', '\u0ac7', '\u0ac8', '\u0ac9', '', '\u0acb', '\u0acc', '\u0acd', '', '', 'ૐ', '', '', '', '', '', '', '', 'ક', 'ખ', 'ગ', 'જ', 'ડ', 'ઢ', 'ફ', 'ય', 'ૠ', 'ૡ', '\u0ae2', '\u0ae3', '', '', '૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯', 'ત્', 'ૌ', 'ર', 'વ'];
+const BEN = ['', '\u0981', '\u0982', '\u0983', '', 'অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'ঌ', '', '', 'এ', 'ঐ', '', '', 'ও', 'ঔ', 'ক', 'খ', 'গ', 'ঘ', 'ঙ', 'চ', 'ছ', 'জ', 'ঝ', 'ঞ', 'ট', 'ঠ', 'ড', 'ঢ', 'ণ', 'ত', 'থ', 'দ', 'ধ', 'ন', 'ন', 'প', 'ফ', 'ব', 'ভ', 'ম', 'য', 'র', 'র', 'ল', 'ল', 'ল', 'ব', 'শ', 'ষ', 'স', 'হ', '', '', '\u09bc', 'ঽ', '\u09be', '\u09bf', '\u09c0', '\u09c1', '\u09c2', '\u09c3', '\u09c4', '', '', '\u09c7', '\u09c8',  '', '', '\u09cb', '\u09cc', '\u09cd', '', '', '', '', '', '', '', '', '', '', 'ক', 'খ', 'গ', 'জ', 'ড়', 'ঢ়', 'ফ', 'য়', 'ৠ', 'ৡ', '\u09e2', '\u09e3',  '', '', '০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', 'ৎ', '\u09d7', 'ৰ', 'ৱ'];
+const VIRAMAALL = ['\u094d', '\u0acd', '\u09cd'];
+const MATRAALL = ['\u0901', '\u0902', '\u0903', '\u093a', '\u093b', '\u093c', '\u093d', '\u093e', '\u093f', '\u0940', '\u0941', '\u0942', '\u0943', '\u0944', '\u0945', '\u0946', '\u0947', '\u0948', '\u0949', '\u094a', '\u094b', '\u094c', '\u0962', '\u0963', '\u0a81', '\u0a82', '\u0a83', '\u0abc', '\u0abd', '\u0abe', '\u0abf', '\u0ac0', '\u0ac1', '\u0ac2', '\u0ac3', '\u0ac4', '\u0ac5', '\u0ac7', '\u0ac8', '\u0ac9', '\u0acb', '\u0acc', '\u0ae2', '\u0ae3', '\u0981', '\u0982', '\u0983', '\u09bc',  '\u09be', '\u09bf', '\u09c0', '\u09c1', '\u09c2', '\u09c3', '\u09c4', '\u09c7', '\u09c8', '\u09cb', '\u09cc', '\u09e2', '\u09e3', '\u09d7'];
+const WHITESPACE = [' '];
+function devaNewlipimap(y, knownLipi, newLipi, cALearn, level) {
+  var devaChar;
+  var devaLine;
+  var i;
+  var j;
+  var cO = [];
+  var cT = [];
+  var fromLipi;
+  switch(knownLipi) {
+    case 'DEVA':
+      fromLipi = DEVA;
+      break;
+    case 'GUJ':
+      fromLipi = GUJ;
+      break;
+    case 'BEN':
+      fromLipi = BEN;
+      break;
+    default:
+      fromLipi = NA;
+  }
+  var learnLipi;
+  switch(newLipi) {
+    case 'DEVA':
+      learnLipi = DEVA;
+      break;
+    case 'GUJ':
+      learnLipi = GUJ;
+      break;
+    case 'BEN':
+      learnLipi = BEN;
+      break;
+    default:
+      learnLipi = NA;
+  }
+  for (i = 0; i < y.length; i++) {
+    devaLine = y[i];
+    for (j = 0; j < devaLine.length; j++) {
+      devaChar = devaLine[j];
+      if (cALearn == "ALL") {
+        toConvert = fromLipi;
+      } else {
+         toConvert = cALearn + MATRAALL;
+      }
+      var learnCharI =  toConvert.indexOf(devaChar);
+      switch(learnCharI) {
+        case -1:
+          cT += devaChar;
+          if (level == "2") {
+            cO += devaChar;
+            if (WHITESPACE.indexOf(devaChar) != -1) {
+              cT += cO;
+              cO = [];
+            }
+          }
+          break;
+        default:
+          var devaI = fromLipi.indexOf(devaChar);
+          switch(devaI) {
+            case -1:
+              cT += devaChar;
+              break;
+            default:
+              if (cALearn != "ALL") {
+                if (MATRAALL.indexOf(devaChar) != -1) {
+                  if (MATRAALL.indexOf(devaLine[j-1]) != -1) {
+                    if (cALearn.indexOf(devaLine[j-2]) == -1 || VIRAMAALL.indexOf(devaLine[j-3]) != -1) {
+                      cT += devaChar;
+                      break;
+                    } else {
+                      if (learnLipi[devaI] == '') {
+                        cT += devaChar;
+                      } else {
+                        cT += learnLipi[devaI];
+                      }
+                    }
+                  }
+                  else if (cALearn.indexOf(devaLine[j-1]) == -1 || VIRAMAALL.indexOf(devaLine[j-2]) != -1) {
+                    cT += devaChar;
+                    break;
+                  } else {
+                    if (learnLipi[devaI] == '') {
+                      cT += devaChar;
+                    } else {
+                      cT += learnLipi[devaI];
+                    }
+                  }
+                }
+                else if (VIRAMAALL.indexOf(devaLine[j-1]) != -1 || VIRAMAALL.indexOf(devaLine[j+1]) != -1) {
+                  cT += devaChar;
+                  break;
+                } else {
+                  if (learnLipi[devaI] == '') {
+                    cT += devaChar;
+                  } else {
+                    cT += learnLipi[devaI];
+                  }
+                }
+              } else {
+                if (level == "2") {
+                  cO += devaChar;
+                }
+                if (learnLipi[devaI] == '') {
+                  cT += devaChar;
+                } else {
+                  if (learnLipi[devaI] == '') {
+                    cT += devaChar;
+                  } else {
+                    cT += learnLipi[devaI];
+                  }
+                }
+              }
+          }
+      }
+    }
+    if (level == "2") {
+      cT += " " + cO;
+      cO = [];
+    }
+    cT += ('</br>')
+  }
+  return cT;
+}
+function myFunction() {
+  var x = document.getElementById("myTextarea").value;
+  var y = x.split("\n");
+  var level = document.getElementById("level").value;
+  if (level == "1") {
+    var cLearn = document.getElementById("learnVarn").value;
+    var cALearn = cLearn.split(" ");
+  } else {
+    var cALearn = "ALL";
+  }
+  var newLipi = document.getElementById("lipiToLearn").value;
+  var knownLipi = document.getElementById("fromLipi").value;
+  var challangeTxt = devaNewlipimap(y, knownLipi, newLipi, cALearn, level);
+  document.getElementById("demo").innerHTML = challangeTxt;
+}
+const ex1 = "अ आ इ ई उ ऊ ऋ ऌ ए ऐ ओ औ क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न प फ ब भ म य र ल ळ व श ष स ह \nઅ આ ઇ ઈ ઉ ઊ ઋ ઌ એ ઐ ઓ ઔ ક ખ ગ ઘ ઙ ચ છ જ ઝ ઞ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ ળ વ શ ષ સ હ\nঅ আ ই ঈ উ ঊ ঋ ঌ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল ব শ ষ স হ";
+const gEx2 = "વૈષ્ણવજન તો તેને રે કહીયે, જે પીડ પરાઈ જાણે રે.\nપરદુઃખે ઉપકાર કરે તોયે, મન અભિમાન ન આણે રે.\n\nસકળ લોકમાં સહુને વંદે, નિંદા ન કરે કેની રે.\nવાચ કાછ મન નિશ્ચલ રાખે, ધન ધન જનની તેની રે.\n\nસમદ્રષ્ટિને તૃષ્ણા ત્યાગી, પરસ્ત્રી જેને માત રે.\nજિહ્વા થકી અસત્ય ન બોલે, પરધન નવ ઝાલે હાથ રે.\n\nમોહ માયા વ્યાપે નહિ જેને, દ્રઢ વૈરાગ્ય જેના મનમાં રે.\nરામ નામ શું તાળી રે વાગી, સકળ તિરથ તેના તનમાં રે.\n\nવણલોભી ને કપટ રહિત છે, કામ ક્રોધ નિવાર્યા રે.\nભણે નરસૈયો તેનું દર્શન કરતા, કુળ ઈકોતેર તાર્યા રે.";
+const dEx2 = "वर्षों तक वन में घूम-घूम\nबाधा-विघ्नों को चूम-चूम\nसह धूप-घाम पानी-पत्थर\nपांडव आये कुछ और निखर।\nसौभाग्य न सब दिन सोता है\nदेखें आगे क्या होता है।\n\nमैत्री की राह बताने को\nसबको सुमार्ग पर लाने को\nदुर्योधन को समझाने को\nभीषण विध्वंस बचाने को। \nभगवान् हस्तिनापुर आये\nपांडव का संदेशा लाये।\n\nदो न्याय अगर तो आधा दो\nपर इसमें भी यदि बाधा हो\nतो दे दो केवल पाँच ग्राम\nरक्खो अपनी धरती तमाम।\nहम वहीं खुशी से खायेंगे\nपरिजन पर असि न उठायेंगे।\n\nदुर्योधन वह भी दे ना सका\nआशीष समाज की ले न सका\nउलटे हरि को बाँधने चला\nजो था असाध्य साधने चला।\nजब नाश मनुज पर छाता है\nपहले विवेक मर जाता है।\n\nहरि ने भीषण हुंकार किया\nअपना स्वरूप-विस्तार किया\nडगमग-डगमग दिग्गज डोले\nभगवान् कुपित होकर बोले।\nजंजीर बढ़ा कर साध मुझे\nहाँ हाँ दुर्योधन! बाँध मुझे।\n\nयह देख गगन मुझमें लय है\nयह देख पवन मुझमें लय है\nमुझमें विलीन झंकार सकल\nमुझमें लय है संसार सकल।\nअमरत्व फूलता है मुझमें\nसंहार झूलता है मुझमें।\n\nउदयाचल मेरा दीप्त भाल\nभूमंडल वक्षस्थल विशाल\nभुज परिधि-बन्ध को घेरे हैं\nमैनाक-मेरु पग मेरे हैं।\nदिपते जो ग्रह नक्षत्र निकर\nसब हैं मेरे मुख के अन्दर।\n\nदृग हों तो दृश्य अकाण्ड देख\nमुझमें सारा ब्रह्माण्ड देख\nचर-अचर जीव जग क्षर-अक्षर\nनश्वर मनुष्य सुरजाति अमर।\nशत कोटि सूर्य शत कोटि चन्द्र\nशत कोटि सरित सर सिन्धु मन्द्र।\n\nशत कोटि विष्णु ब्रह्मा महेश\nशत कोटि जिष्णु जलपति धनेश\nशत कोटि रुद्र शत कोटि काल\nशत कोटि दण्डधर लोकपाल।\nजञ्जीर बढ़ाकर साध इन्हें\nहाँ-हाँ दुर्योधन! बाँध इन्हें।\n\nभूलोक अतल पाताल देख\nगत और अनागत काल देख\nयह देख जगत का आदि-सृजन\nयह देख महाभारत का रण।\nमृतकों से पटी हुई भू है\nपहचान इसमें कहाँ तू है।\n\nअम्बर में कुन्तल-जाल देख\nपद के नीचे पाताल देख\nमुट्ठी में तीनों काल देख\nमेरा स्वरूप विकराल देख।\nसब जन्म मुझी से पाते हैं\nफिर लौट मुझी में आते हैं।\n\nजिह्वा से कढ़ती ज्वाल सघन\nसाँसों में पाता जन्म पवन\nपड़ जाती मेरी दृष्टि जिधर\nहँसने लगती है सृष्टि उधर।\nमैं जभी मूँदता हूँ लोचन\nछा जाता चारों ओर मरण।\n\nबाँधने मुझे तो आया है\nजंजीर बड़ी क्या लाया है\nयदि मुझे बाँधना चाहे मन\nपहले तो बाँध अनन्त गगन।\nसूने को साध न सकता है\nवह मुझे बाँध कब सकता है।\n\nहित-वचन नहीं तूने माना\nमैत्री का मूल्य न पहचाना\nतो ले मैं भी अब जाता हूँ\nअन्तिम संकल्प सुनाता हूँ।\nयाचना नहीं अब रण होगा\nजीवन-जय या कि मरण होगा।\n\nटकरायेंगे नक्षत्र-निकर\nबरसेगी भू पर वह्नि प्रखर\nफण शेषनाग का डोलेगा\nविकराल काल मुँह खोलेगा।\nदुर्योधन! रण ऐसा होगा\nफिर कभी नहीं जैसा होगा।\n\nभाई पर भाई टूटेंगे\nविष-बाण बूँद-से छूटेंगे\nवायस-श्रृगाल सुख लूटेंगे\nसौभाग्य मनुज के फूटेंगे।\nआखिर तू भूशायी होगा\nहिंसा का पर दायी होगा।";
+const gEx3 = "ગ્રામમાતા - કલાપી\n\nશાર્દૂલવિક્રીડિત\n\nઊગે છે સુરખી ભરી રવિ મૃદુ હેમન્તનો પૂર્વમાં,\nભૂરું છે નભ સ્વચ્છ સ્વચ્છ, દીસતી એકે નથી વાદળી;\nઠંડો હિમભર્યો વહે અનિલ શો, ઉત્સાહને પ્રેરતો,\nજે ઉત્સાહ ભરી દીસે શુક ઊડી ગાતાં, મીઠાં ગીતડાં !\n\nમાલિની\n\nમધુર સમય તેવે ખેતરે શેલડીના,\nરમત કૃષિવલોનાં બાલ નાનાં કરે છે;\nકમલવત ગણીને બાલના ગાલ રાતા,\nરવિ નિજ કર તેની ઉપરે ફેરવે છે !\n\nઅનુષ્ટુપ\n\nવૃદ્ધ માતા અને તાત તાપે છે શગડી કરી,\nઅહો ! કેવું સુખી જોડું કર્તાએ નિરમ્યું દીસે !\n\nવસંતતિલકા\n\nત્યાં ધૂલ દૂર નજરે ઊડતી પડે છે,\nને અશ્વ ઉપર ચડી નર કોઈ આવે\nટોળે વળી મુખ વિકાસી ઊભાં રહીને,\nતે અશ્વને કુતૂહલે સહુ બાલ જોતાં !\n\nમંદાક્રાંતા\n\nધીમે ઊઠી, શિથિલ કરને, નેત્રની પાસ રાખી,\nવૃદ્ધા માતા, નયન નબળાં, ફેરવીને જુએ છે;\nને તેનો એ, પ્રિય પતિ હજુ, શાંત બેસી રહીને,\nજોતાં ગાતો, શગડી પરનો, દેવતા ફેરવે છે.\n\nઅનુષ્ટુપ\n\nત્યાં તો આવી પહોંચ્યો એ, અશ્વ સાથે યુવાન ત્યાં;\nકૃષિક, એ ઊઠી ત્યારે 'આવો, બાપુ !' કહી ઊભો.\n\nશાર્દૂલવિક્રીડિત\n\n'લાગી છે મુજને તૃષા, જલ ભરી દે તું મને' બોલીને\nઅશ્વેથી ઉતરી યુવાન ઉભીને ચારે દિશાઓ જુએ;\n'મીઠો છે રસ ભાઈ! શેલડી તણો' એવું દયાથી કહી,\nમાતા ચાલી યુવાનને લઈ ગઈ જ્યાં છે ઊભી શેલડી !\n\nવસંતતિલકા\n\nપ્યાલું ઉપાડી ઊભી શેલડી પાસ માતા,\nછૂરી વતી જરીક કાતળી એક કાપી;\nત્યાં સેર છૂટી રસની ભરી પાત્ર દેવા,\nને કૈં વિચાર કરતો નર તે ગયો પી.\n\nઅનુષ્ટુપ\n\n'બીજું પ્યાલું ભરી દેને, હજુ છે મુજને તૃષા,'\nકહીને પાત્ર યુવાને માતાના કરમાં ધર્યું.\nમંદાક્રાંતા\n\nકાપી કાપી ફરી ફરી અરે ! કાતળી શેલડીની,\nએકે બિંદુ પણ રસતણું કેમ હાવાં પડે ના ?\n'શુ કોપ્યો છે પ્રભુ મુજ પરે ?' આંખમાં આંસુ લાવી,\nબોલી માતા વળી ફરી છૂરી ભોંકતી શેલડીમાં\n\nઅનુષ્ટુપ\n\n'રસહીન ધરા થૈ છે, દયાહીન થયો નૃપ;\nનહિ તો ના બને આવું;' બોલી માતા ફરી રડી.\n\nવસંતતિલકા\n\nએવું યુવાન સુણતાં ચમકી ગયો ને\nમાતા તણે પગ પડી ઉઠીને કહે છે :\n'એ હું જ છું નૃપ, મને કર માફ ! બાઈ !\nએ હું જ છું નૃપ, મને કર માફ ! ઈશ !'\n\nશાર્દૂલવિક્રીડિત\n\n'પીતો'તો રસ મિષ્ટ હું પ્રભુ ! અરે ત્યારે જ ધાર્યું હતું,\nઆ લોકો સહુ દ્રવ્યવાન નકી છે, એવી ધરા છે અહીં;\nછે તોયે મુજ ભાગ કૈં નહીં સમો, તે હું વધારું હવે,\nશા માટે બહુ દ્રવ્ય આ ધનિકની, પાસેથી લેવું નહીં ?\n\nઉપજાતિ\n\nરસ હવે દે ભરી પાત્ર બાઈ !\nપ્રભુક્રુપાએ નકી એ ભરાશે;\nસુખી રહે બાઈ! સુખી રહો સૌ,\nતમારી તો આશિષ માત્ર માગું !'\n\nવસંતતિલકા\n\nપ્યાલુ ઉપાડી ઉભી શેલડી પાસ માતા,\nછૂરી વતી જરી જ કાતળી એક કાપી;\nત્યાં સેર છૂટી રસની ભરી પાત્ર દેવા,\nબ્હોળો વહે રસ અહો ! છલકાવી પ્યાલું !";
+const bEx3 = "বিস্তীৰ্ণ পাৰৰে  - ভূপেন হাজৰিকা\n\nবিস্তীৰ্ণ পাৰৰে\nঅসংখ্য জনৰে\nহাঁহাকাৰ শুনিও\nনিঃশব্দে নিৰৱে\nবুঢ়া লুইত তুমি\nবুঢ়া লুইত বোৱাঁ কিয় ?\n\nনৈতিকতাৰ স্খলন দেখিও\nমানৱতাৰ পতন দেখিও\nনিৰ্লজ্জ অলসভাৱে বোৱাঁ কিয় ?\n\nজ্ঞানবিহীন নিৰক্ষৰৰ\nখাদ্যবিহীন নাগৰিকৰ\nনেতৃবিহীনতাত নিমাত কিয় ?\n\nসহস্ৰ বাৰিষাৰ\nউন্মাদনাৰ\nঅভিজ্ঞতাৰে\nপংগু মানৱক\nসবল সংগ্ৰামী,\nআৰু অগ্ৰগামী\nকৰি নোতোলা কিয় ?\n\nব্যক্তি যদি ব্যক্তিকেন্দ্ৰিক\nসমষ্টি যদি ব্যক্তিত্বৰহিত\nতেনে শিথিল সমাজক নাভাঙা কিয় ?\n\nতুমিয়ে যদি ব্ৰহ্মাৰে পুত্ৰ\nসেই পিতৃত্ব তেনে নাম মাত্ৰ\nনহʼলে প্ৰেৰণা নিদিয়া কিয় ?\n\nউন্মত্ত ধৰাৰে\nকুৰুক্ষেত্ৰৰে\nশৰশয্যাতে\nআলিঙ্গন কৰা\nভীষ্মৰূপী\nঅজস্ৰ বীৰক\nজগাই নোতোলাঁ কিয় ?";
+const bEx2 = "বন্দে মাতরম্ ৷\nসুজলাং সুফলাং\nমলয়জশীতলাম্\nশস্যশ্যামলাং\nমাতরম্ !\n\nশুভ্র-জ্যোত্স্না-পুলকিত-যামিনীম্\nফুল্লকুসুমিত-দ্রুমদলশোভিনীম্\nসুহাসিনীং সুমধুরভাষিণীম্\nসুখদাং বরদাং মাতরম্ ৷৷\n\nসপ্তকোটীকন্ঠ-কল-কল-নিনাদকরালে\nদ্বিসপ্তকোটীভুজৈধৃতখরকরবালে\nঅবলা কেন মা এত বলে !\nবহুবলধারিণীং\nনমামি তরিণীং\nরিপুদলবারিণীং\nমাতরম্ ৷\n\nতুমি বিদ্যা তুমি ধর্ম্ম\nতুমি হৃদি তুমি মর্ম্ম\nত্বং হি প্রাণাঃ শরীরে ৷\nবাহুতে তুমি মা শক্তি\nহৃদয়ে তুমি মা ভক্তি\nতোমারই প্রতিমা গড়ি মন্দিরে মন্দিরে ৷\n\nত্বং হি দুর্গা দশপ্রহরণধারিণী\nকমলা কমল-দলবিহারিণী\nবাণী বিদ্যাদায়িণী\nনমামি ত্বাং\nনমামি কমলাম্\nঅমলাং অতুলাম্\nসুজলাং সুফলাং\nমাতরম্\n\nবন্দে মাতরম্\nশ্যামলাং সরলাং\nসুস্মিতাং ভূষিতাম্\nধরণীং ভরণীম্\nমাতরম্ ৷";
+const dEx3 = "वन्दे मातरम्\nसुजलां सुफलां मलयजशीतलाम्\nशस्य श्यामलां मातरम् \nशुभ्र ज्योत्स्ना पुलकित यामिनीम्\nफुल्ल कुसुमित द्रुमदलशोभिनीम्\nसुहासिनीं सुमधुर भाषिणीम् \nसुखदां वरदां मातरम्\nवन्दे मातरम्";
+</script>
 </body>
 </html>
